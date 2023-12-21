@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eo-demo
+  namespace: eo-demo
+  labels:
+    app.kubernetes.io/part-of: eo-demo
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/part-of: eo-demo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/part-of: eo-demo
+    spec:
+      containers:
+      - image: masanara/demoapp:1.0
+        name: workload
