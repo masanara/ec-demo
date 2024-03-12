@@ -15,5 +15,5 @@ spec:
         app.kubernetes.io/part-of: eo-demo
     spec:
       containers:
-      - image: masanara/demoapp:1.1
+      - image: masanara/demoapp:1.0
         name: workload
