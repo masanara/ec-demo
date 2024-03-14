@@ -64,7 +64,7 @@ spec:
   selector:
     app.kubernetes.io/part-of: peoplecount
   type: LoadBalancer
-  loadBalancerIP: 192.168.0.232
+  loadBalancerIP: 192.168.2.232
   ports:
   - targetPort: 8888
     port: 80

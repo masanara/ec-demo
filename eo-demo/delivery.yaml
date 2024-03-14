@@ -61,7 +61,7 @@ spec:
   selector:
     app.kubernetes.io/part-of: openvino_notebooks
   type: LoadBalancer
-  loadBalancerIP: 192.168.0.231
+  loadBalancerIP: 192.168.2.231
   ports:
   - targetPort: 8888
     port: 80
