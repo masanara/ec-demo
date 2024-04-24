@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dobot
+  name: dobot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dobot
+  template:
+    metadata:
+      labels:
+        app: dobot
+    spec:
+      containers:
+      - image: masanara/dobot:x
+        name: dobot
