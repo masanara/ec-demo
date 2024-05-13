@@ -2,18 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: dobot
-  name: dobot
+    app: dobot-control
+  name: dobot-control
+  namespace: dobot-control
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dobot
+      app: dobot-control
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: dobot
+        app: dobot-control
     spec:
       containers:
       - image: masanara/dobot:x
-        name: dobot
+        name: dobot-control
+        resources:
+          limits:
+            squat.ai/serial: 1
