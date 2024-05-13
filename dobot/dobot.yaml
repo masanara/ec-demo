@@ -18,7 +18,7 @@ spec:
         app: dobot-control
     spec:
       containers:
-      - image: masanara/dobot:x
+      - image: masanara/dobot:y
         name: dobot-control
         resources:
           limits:
