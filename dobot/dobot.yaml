@@ -18,6 +18,6 @@ spec:
         app: dobot-control
     spec:
       containers:
-      - image: masanara/dobot-control:y
+      - image: masanara/dobot-control:x
         name: dobot-control
         terminationGracePeriodSeconds: 0
