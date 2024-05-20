@@ -18,5 +18,8 @@ spec:
         app: dobot-control
     spec:
       containers:
-      - image: masanara/dobot-control:y
+      - image: masanara/dobot:y
         name: dobot-control
+        resources:
+          limits:
+            squat.ai/serial: 1
