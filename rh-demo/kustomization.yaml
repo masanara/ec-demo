@@ -1,5 +1,5 @@
 resources:
-- rabbitmq-operator.yml
+- cluster-operator.yml
 - rabbitmq-cluster.yaml
 - demo-rest.yaml
 - peoplecount.yaml
