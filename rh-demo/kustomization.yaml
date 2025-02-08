@@ -1,0 +1,6 @@
+resources:
+- rabbitmq-operator.yml
+- rabbitmq-cluster.yaml
+- demo-rest.yaml
+- peoplecount.yaml
+- eo-demo.yaml

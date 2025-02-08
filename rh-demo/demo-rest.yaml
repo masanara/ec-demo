@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-rest
+  name: demo-rest
+  namespace: peoplecount
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-rest
+  template:
+    metadata:
+      labels:
+        app: demo-rest
+    spec:
+      containers:
+      - image: masanara/php:1.0
+        name: php
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-rest
+  namespace: peoplecount
+  labels:
+    app: demo-rest
+spec:
+  selector:
+    app: demo-rest
+  type: ClusterIP
+  ports:
+  - targetPort: 80
+    port: 80
+    name: http
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: demo-rest
+  namespace: peoplecount
+spec:
+  to:
+    kind: Service
+    name: demo-rest
+  port:
+    targetPort: 80
