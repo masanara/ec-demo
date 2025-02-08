@@ -6,9 +6,12 @@ metadata:
   labels:
     app.kubernetes.io/part-of: peoplecount
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/part-of: peoplecount
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -20,6 +23,8 @@ spec:
           value: "0"
         - name: ACCELERATION_DEVICE
           value: CPU
+        - name: NOTEBOOK_ARGS
+          value: "--NotebookApp.token=''"
         - name: AMQP_HOSTNAME
           valueFrom:
             secretKeyRef:
@@ -44,13 +49,14 @@ spec:
               name: edge-inferencing-events-default-user
               key: password
               optional: true
-        image: masanara/ov:1.6
-        name: workload
+        image: masanara/ov:3.0
+        name: jupyter-notebook
         securityContext:
-          runAsUser: 0
-        #resources:
-        #  limits:
-        #    squat.ai/serial: "1"
+          runAsGroup: 0
+          runAsUser: 1001
+        resources:
+          limits:
+            squat.ai/video: "1"
       serviceAccountName: default
 ---
 apiVersion: v1
