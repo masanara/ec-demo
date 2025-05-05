@@ -22,4 +22,4 @@ spec:
               fieldRef:
                 fieldPath: spec.nodeName
         ports:
-        - containerPort: 8080
+        - containerPort: 80
