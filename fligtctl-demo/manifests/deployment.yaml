@@ -15,6 +15,11 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginxinc/nginx-unprivileged:latest
+        image: harbor.nsx.techlab.netone.co.jp/library/nginx-env:0.1
+        env:
+          - name: HTML_CONTENT
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
         ports:
         - containerPort: 8080
